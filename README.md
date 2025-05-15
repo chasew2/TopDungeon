@@ -1,4 +1,4 @@
-# ⚔️ Top-Down RPG
+# ⚔️ Top Dungeon
 
 A 2D top-down role-playing game built with Unity and C#, inspired by the YouTube course [Learn Unity Engine and C# by creating a real top down RPG](https://www.youtube.com/watch?v=b8YUfee_pzc).
 
