@@ -168,6 +168,8 @@ MonoBehaviour:
     maxDepth: 0
     minNormalAngle: 0
     maxNormalAngle: 0
+  emptyChest: {fileID: -4838524579801021263, guid: e2b5573c676d94e3d932d1127f98cb63, type: 3}
+  coinsAmt: 5
 --- !u!61 &157282904
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -1197,7 +1199,7 @@ GameObject:
   - component: {fileID: 388315428}
   - component: {fileID: 388315427}
   m_Layer: 9
-  m_Name: Player_0
+  m_Name: Player
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
