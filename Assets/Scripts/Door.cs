@@ -10,6 +10,7 @@ public class Door : Collidable
         if (coll.name == "Player")
         {
             //teleport player
+            GameManager.instance.SaveState();
             string sceneName = sceneNames[Random.Range(0, sceneNames.Length)];
             UnityEngine.SceneManagement.SceneManager.LoadScene(sceneName);
     }

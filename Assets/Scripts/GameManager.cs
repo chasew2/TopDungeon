@@ -1,18 +1,77 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class GameManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public static GameManager instance;
+
+    private void Awake()
     {
+        if (GameManager.instance != null)
+        {
+            Destroy(gameObject);
+            return;
+        }
+
         
+        instance = this;
+        SceneManager.sceneLoaded += LoadState;
+        DontDestroyOnLoad(gameObject);
     }
 
-    // Update is called once per frame
-    void Update()
+    //Resources
+    public List<Sprite> playerSprites;
+    public List<Sprite> weaponSprites;
+    public List<int> weaponPrices;
+    public List<int> xpTable;
+
+    //References
+    public Player player;
+    //public weapon weapon...
+
+    // Logic
+    public int coins;
+    public int xp;
+
+
+    //Save State
+    /*
+    *Int preferedSkin
+    *int coins
+    *int ex
+    *int weaponLevel
+    */
+
+
+    public void SaveState()
     {
-        
+        string s = "";
+
+        s += "0" + "|";
+        s += coins.ToString() + "|";
+        s += xp.ToString() + "|";
+        s += "0";
+
+        PlayerPrefs.SetString("SaveState", s);
+        Debug.Log("SaveState");
     }
+
+    public void LoadState(Scene s, LoadSceneMode mode)
+    {
+        if (!PlayerPrefs.HasKey("SaveState"))
+            return;
+
+        string[] data = PlayerPrefs.GetString("SaveState").Split('|');
+
+        //Change skin
+        coins = int.Parse(data[1]);
+        xp = int.Parse(data[2]);
+        //Change weapon level
+
+
+        Debug.Log("LoadState");
+    }   
+    
 }
