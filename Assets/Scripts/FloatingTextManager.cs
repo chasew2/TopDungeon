@@ -33,14 +33,14 @@ public class FloatingTextManager : MonoBehaviour
     }
     private FloatingText GetFloatingText()
     {
-        FloatingText txt = floatingTexts.Find(textContainer => !t.active);
+        FloatingText txt = floatingTexts.Find(t => !t.active);
 
         if (txt == null)
         {
             txt = new FloatingText();
             txt.go = Instantiate(textPrefab);
             txt.go.transform.SetParent(textContainer.transform);
-            txt.txt = txt.go.GetComponent<textContainer>();
+            txt.txt = txt.go.GetComponent<Text>();
 
             floatingTexts.Add(txt);
         }
