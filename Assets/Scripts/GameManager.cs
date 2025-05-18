@@ -30,10 +30,20 @@ public class GameManager : MonoBehaviour
     //References
     public Player player;
     //public weapon weapon...
+    public FloatingTextManager floatingTextManager;
+
+
+
 
     // Logic
     public int coins;
     public int xp;
+
+    //floating text
+    public void ShowText(string msg, int fontSize, Color color, Vector3 position, Vector3 motion, float duration)
+    {
+        floatingTextManager.Show(msg, fontSize, color, position, motion, duration);
+    }
 
 
     //Save State
